@@ -1,0 +1,53 @@
+ IDENTIFICATION DIVISION.
+       PROGRAM-ID. aulaif.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+	   77 WRK-NOTA1 PIC 9(02) VALUE ZEROS.
+	   77 WRK-NOTA2 PIC 9(02) VALUE ZEROS.
+	   77 WRK-MEDIA PIC 9(02) VALUE ZEROS.
+	   PROCEDURE DIVISION.
+	   0001-PRINCIPAL.
+	        PERFORM 0100-INICIALIZAR.
+	        IF WRK-NOTA1 > 0 AND WRK-NOTA2 > O  ** ESSE IF SERVE PARA MOSTRAR QUE SE UMA DAS NOTAS FOR 0, O PROGRAMA NEM RODA.****
+	        PERFORM 0200-PROCESSAR.
+	        END-IF.
+	        PERFORM 0300-FINALIZAR.
+	        
+	  STOP RUN.      
+	   
+	   
+	   
+	   
+	   
+	   0100-INICIALIZAR.
+	      ACCEPT WRK-NOTA1.
+          ACCEPT WRK-NOTA2.
+	   
+	   
+	   
+	   
+	   0200-PROCESSAR.
+	      DISPLAY ' NOTAS GERAIS '
+           DISPLAY 'NOTA 1= ' WRK-NOTA1.
+           DISPLAY 'NOTA 2= ' WRK-NOTA2.
+           DISPLAY'------------------'.
+           DISPLAY 'MÉDIA GERAL'.
+            COMPUTE WRK-MEDIA = (WRK-NOTA1 + WRK-NOTA2) / 2.
+           DISPLAY ' A MÉDIA DO ALUNO É ' WRK-MEDIA.
+           IF WRK-MEDIA >=6
+             DISPLAY 'APROVADO'
+           ELSE
+           IF WRK-MEDIA >= 2
+             DISPLAY 'RECUPERAÇÃO'
+           ELSE
+             DISPLAY 'REPROVADO'
+           END-IF.
+	   
+	   
+	   
+	   
+	   0300-FINALIZAR.
+	   
+	   DISPLAY '------------------'.
+	   DISPLAY 'FINAL DE PROCESSAMENTO'.

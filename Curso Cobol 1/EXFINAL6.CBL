@@ -1,0 +1,63 @@
+ IDENTIFICATION DIVISION.
+       PROGRAM-ID. aulaEXE06.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+         DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+	   77 WRK-INVESTIMENTO                PIC 9(06)V99   VALUE ZEROS.
+	   77 WRK-PERIODO                     PIC 9(02)      VALUE ZEROS.
+	   77 WRK-TAXA                        PIC 9(02)      VALUE ZEROS.
+	   77 WRK-TOTAL                       PIC 9(10)      VALUE ZEROS.
+	   77 WRK-TOTAL1                      PIC 9(10)      VALUE ZEROS.
+	   77 WRK-INVESTIMENTO-ED             PIC Z.ZZ9,99 VALUE ZEROS.
+	
+	   PROCEDURE DIVISION.
+	   0001-PRINCIPAL.
+	        PERFORM 0100-INICIALIZAR. 
+	        
+	        PERFORM 0200-PROCESSAR. 
+	        
+	       
+	        PERFORM 0300-FINALIZAR.
+	        
+	  STOP RUN.      
+	   
+	   
+	   
+	   
+	   
+	   0100-INICIALIZAR.
+	   
+	      DISPLAY ' INVESTIMENTO'.   
+	      ACCEPT WRK-INVESTIMENTO.
+	       
+	      DISPLAY ' PERIODO INVESTIDO'.
+	      ACCEPT WRK-PERIODO.
+	      DISPLAY ' TAXA MENSAL'.
+	      ACCEPT WRK-TAXA.
+         
+	   
+	   
+	   
+	   
+	   0200-PROCESSAR.
+	   
+	        PERFORM WRK-PERIODO TIMES
+	        
+	           COMPUTE WRK-TAXA/100
+	           COMPUTE WRK-TOTAL =  WRK-INVESTIMENTO * (WRK-TAXA / 100)
+	          
+	           
+	           
+	        END-PERFORM.
+
+	   0300-FINALIZAR.
+	   
+	     DISPLAY '------------------'.
+	     DISPLAY ' INVESTIMENTO ' WRK-INVESTIMENTO.
+	     DISPLAY ' PERIODO DE INVESTIMENTO ' WRK-PERIODO.
+	     DISPLAY ' TAXA MENSAL ' WRK-TAXA.
+	     DISPLAY ' TOTAL DE INVESTIMENTO ' WRK-TOTAL
+	     DISPLAY ' PROCESSO FINALIZADO '.
